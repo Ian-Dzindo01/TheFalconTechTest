@@ -1,0 +1,8 @@
+ASGI, WSGI, Asynchronous
+__init__ - tells that Students app is package
+admin.py - conf file for built in Django admin app - register models
+apps.py - conf for students app
+models.py - database models
+tests.py - app specific tests
+views.py - request response file
+migrations - keeps track of changes to models.py
