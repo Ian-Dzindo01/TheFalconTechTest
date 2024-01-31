@@ -6,3 +6,5 @@ models.py - database models
 tests.py - app specific tests
 views.py - request response file
 migrations - keeps track of changes to models.py
+
+TASKS:
