@@ -74,9 +74,13 @@ WSGI_APPLICATION = "FalconProject.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'falcondb',
+        'USER': 'ian22',
+        'PASSWORD': 'cucemusaje2',
+        'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
+        'PORT': '',          # Leave empty to use the default PostgreSQL port (usually 5432)
     }
 }
 
