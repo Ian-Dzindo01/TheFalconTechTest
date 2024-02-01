@@ -14,5 +14,5 @@ class Student(models.Model):
     molbaUpis = models.CharField(max_length=500)
 
     def __str__(self):
-        return f"Student {self.fName} {self.lName}"
+        return f"Student: {self.fName} {self.lName}"
 # Add finished school document field

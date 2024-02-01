@@ -53,28 +53,28 @@
                       <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th scope="col">Type</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
-                            <th scope="col">Column heading</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Ocijena</th>
+                            <th scope="col">Smijer</th>
                             <th scope="col">Column heading</th>
                           </tr>
                         </thead>
                         <tbody>
+                            {% for student in students %}
+                            <tr>
+                            <td>{{ student.number }}</td>
+                            <td>{{ student.fName }}</td>
+                            <td>{{ student.lName }}</td>
+                            <td>{{ student.email }}</td>
+                            <td>{{ student.prosjekOc }}</td>
+                            <td>{{ student.smijerOdab }}</td>
+                            <td>ACTIONS</td>
+                        </tr>
+                            {% endfor %}
                           <tr>
-                          <tr class="table-light">
-                            <th scope="row">Light</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-
                           </tr>
                         </tbody>
                       </table>
