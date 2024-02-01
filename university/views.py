@@ -16,29 +16,32 @@ def add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
-            new1 = form.cleaned_data['number'],
+            new1 = form.cleaned_data['number']
             new2 = form.cleaned_data['fName']
             new3 = form.cleaned_data['lName']
             new4 = form.cleaned_data['email']
-            new5 = form.cleaned_data['smjerOdab']
+            new5 = form.cleaned_data['smijerOdab']
             new6 = form.cleaned_data['prosjekOc']
 
             newStudent = Student(
-                number = new1,
-                fName = new2,
-                lName = new3,
-                email = new4,
-                smjerOdab = new5,
-                prosjekOc = new6
+                number=new1,
+                fName=new2,
+                lName=new3,
+                email=new4,
+                smijerOdab=new5,
+                prosjekOc=new6
             )
             newStudent.save()
-            return render(request, 'students/add.html', {
-                'form': StudentForm(),
-                'success': True
+            
+            # Redirect to the index page after successful submission
+            return render(request, 'university/add.html', {
+                'form':StudentForm(),
+                'success':True
             })
-        else:
-            form = StudentForm()
+    else:
+        # Display an empty form for GET requests
+        form = StudentForm()
 
-        return render(request, 'student/add.html', {
-            'form':StudentForm()
-        })
+    return render(request, 'university/add.html', {
+        'form': form
+    })

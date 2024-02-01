@@ -8,10 +8,10 @@ class Student(models.Model):
     smijerOdab = models.CharField(max_length=50)
     skola = models.CharField(max_length=50)
     prosjekOc = models.FloatField()
-    maturaOc = models.FloatField()
-    datumRodj = models.DateField()
-    mjestoRodj = models.CharField(max_length=100)
-    molbaUpis = models.CharField(max_length=500)
+    # maturaOc = models.FloatField()
+    # datumRodj = models.DateField()
+    # mjestoRodj = models.CharField(max_length=100)
+    # molbaUpis = models.CharField(max_length=500)
 
     def __str__(self):
         return f"Student: {self.fName} {self.lName}"
