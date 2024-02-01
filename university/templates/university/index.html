@@ -59,7 +59,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">Ocijena</th>
                             <th scope="col">Smijer</th>
-                            <th scope="col">Column heading</th>
+                            <th scope="col">ACTIONS</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -71,7 +71,41 @@
                             <td>{{ student.email }}</td>
                             <td>{{ student.prosjekOc }}</td>
                             <td>{{ student.smijerOdab }}</td>
-                            <td>ACTIONS</td>
+                            <td>
+                                <button type="button" class="btn btn-success me-1" href="{% url 'view_student' student.id %}" data-bs-toggle="modal" data-bs-target="#myModal
+                                {{student.id}}">
+                                <i class="fa-solid fa-circle-info fa-lg"></i>
+                            </button>
+
+
+                            <div class="modal" id="myModal{{student.id}}" tabIndex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">
+                                        Student: {{ student.fName }} {{ student.lName }}
+                                    </h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"></span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <ul class="list-unstyled">
+                                        <li>Number: <strong> {{student.number }} </strong></li>
+                                        <li>First Name: <strong> {{student.fName }} </strong></li>
+                                        <li>Last Name: <strong> {{student.lName }} </strong></li>
+                                        <li>Email: <strong> {{student.email }} </strong></li>
+                                        <li>Prosijek Ocijena: <strong> {{student.prosjekOc }} </strong></li>
+                                        <li>Smijer: <strong> {{student.smijerOdab }} </strong></li>
+                                      </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
                         </tr>
                             {% endfor %}
                           <tr>

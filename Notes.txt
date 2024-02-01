@@ -6,5 +6,7 @@ models.py - database models
 tests.py - app specific tests
 views.py - request response file
 migrations - keeps track of changes to models.py
+widget - rendering html forms
 
 TASKS:
+1. Remove About button on list of students.
