@@ -45,3 +45,21 @@ def add(request):
     return render(request, 'university/add.html', {
         'form': form
     })
+
+def edit(request, id):
+    student = Student.objects.get(pk=id)
+
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return render(request, 'university/edit.html', {
+                'form': form,
+                'success': True
+            })
+    else:
+        form = StudentForm(instance=student)
+
+    return render(request, 'university/edit.html', {
+        'form': form
+    })
