@@ -9,12 +9,10 @@ migrations - keeps track of changes to models.py
 widget - rendering html forms
 
 TASKS:
-- Remove About button on list of students.
-- Add rest of fields for student registration
-- Pages for each field of study
+- Add rest of fields for student registration - Easy
+- Pages for each field of study - Easy
 - Count of students in each field of study
-- Add multiple administrator
+- Add multiple administrator - Easy
 - Add comments
 - Ability for administrators to delete each other
 - Administators able to signup students to whichever FOS but with message.
-- Switch to PostreSQL - 
