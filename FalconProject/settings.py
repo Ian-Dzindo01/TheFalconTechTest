@@ -79,8 +79,8 @@ DATABASES = {
         'NAME': 'falcondb',
         'USER': 'ian22',
         'PASSWORD': 'cucemusaje2',
-        'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
-        'PORT': '',          # Leave empty to use the default PostgreSQL port (usually 5432)
+        'HOST': 'localhost',  
+        'PORT': '',          
     }
 }
 
