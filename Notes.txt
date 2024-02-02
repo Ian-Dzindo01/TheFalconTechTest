@@ -10,9 +10,12 @@ widget - rendering html forms
 
 TASKS:
 - Add rest of fields for student registration - Easy
-- Pages for each field of study - Easy
+- Login Logout functionality
+- JWT
+- REST
 - Count of students in each field of study
-- Add multiple administrator - Easy
+- Add multiple administrator
 - Add comments
 - Ability for administrators to delete each other
 - Administators able to signup students to whichever FOS but with message.
+- Remove edit and delete abilities for regular users

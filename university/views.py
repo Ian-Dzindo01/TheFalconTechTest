@@ -16,21 +16,27 @@ def add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
-            new1 = form.cleaned_data['number']
-            new2 = form.cleaned_data['fName']
-            new3 = form.cleaned_data['lName']
-            new4 = form.cleaned_data['email']
-            new5 = form.cleaned_data['smijerOdab']
-            new6 = form.cleaned_data['prosjekOc']
+            new_number = form.cleaned_data['number']
+            new_fname = form.cleaned_data['fName']
+            new_lname = form.cleaned_data['lName']
+            new_email = form.cleaned_data['email']
+            new_smijer = form.cleaned_data['smijerOdab']
+            new_prosjek = form.cleaned_data['prosjekOc']
+            new_maturaOc = form.cleaned_data['maturaOc']
+            new_mjestoRodj = form.cleaned_data['mjestoRodj']
+            new_molba = form.cleaned_data['molba']
 
             newStudent = Student(
-                number=new1,
-                fName=new2,
-                lName=new3,
-                email=new4,
-                smijerOdab=new5,
-                prosjekOc=new6
-            )
+                number=new_number,
+                fName=new_fname,
+                lName=new_lname,
+                email=new_email,
+                smijerOdab=new_smijer,
+                prosjekOc=new_prosjek,
+                maturaOc = new_maturaOc,
+                mjestoRodj = new_mjestoRodj,
+                molba = new_molba
+            )   
             newStudent.save()
             
             # Redirect to the index page after successful submission

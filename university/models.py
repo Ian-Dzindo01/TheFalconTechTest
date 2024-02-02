@@ -8,17 +8,19 @@ class Student(models.Model):
     smijerOdab = models.CharField(max_length=50)
     skola = models.CharField(max_length=50)
     prosjekOc = models.FloatField()
-    # maturaOc = models.FloatField()
-    # datumRodj = models.DateField()
-    # mjestoRodj = models.CharField(max_length=100)
-    # molbaUpis = models.CharField(max_length=500)
+    datumRodj = models.DateField()
+    maturaOc = models.FloatField()
+    mjestoRodj = models.CharField(max_length=100)
+    molba = models.CharField(max_length=500)
+    doc = models.FileField()
 
     def __str__(self):
         return f"Student: {self.fName} {self.lName}"
     
 class FieldOfStudy(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
+    name = models.CharField(max_length=100, default='Tehnicki')
+    description = models.TextField(default='Smijer obrazovanja')
+    quote = models.PositiveIntegerField(default=10)
 
     def __str__(self):
         return self.name
