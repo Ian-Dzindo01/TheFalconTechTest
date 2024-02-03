@@ -11,12 +11,10 @@ widget - rendering html forms
 TASKS:
 - Login Logout functionality
 - JWT
-- REST
-- Count of students in each field of study
 - Add multiple administrator
+- Add document support
 - Ability for administrators to delete each other
 - Administators able to signup students to whichever FOS but with message.
 - Remove edit and delete abilities for regular users
 
-Errors:
-- Fix form submission
+Administrators:

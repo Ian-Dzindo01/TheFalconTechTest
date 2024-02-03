@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ field }} Field of Study</title>
+</head>
+<body>
+    <h1>{{ field }} Field of Study</h1>
+    <h2>Subjects:</h2>
+    <ul>
+        {% for subject in subjects %}
+            <li>{{ subject }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Plan of Study:</h2>
+    <p>{{ plan_of_study }}</p>
+    <h2>Number of students enrolled:</h2>
+    <p>{{ plan_of_study }}</p>
+</body>
+</html>

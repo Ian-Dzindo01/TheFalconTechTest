@@ -15,7 +15,15 @@ def view_student(request, id):
 def add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
+
         if form.is_valid():
+
+            smijer = form.cleaned_data['smijer']
+            smijer.student_count += 1
+
+            if smijer.student_count > smijer.quota:
+                raise forms.validationError(f"Odabrani smijer nema vise slobodnih mjesta.")
+            
             new_broj = form.cleaned_data['broj']
             new_ime = form.cleaned_data['prezime']
             new_prezime = form.cleaned_data['ime']
@@ -26,7 +34,7 @@ def add(request):
             new_ocijena_mature = form.cleaned_data['ocijena_mature']
             new_mjesto = form.cleaned_data['mjesto']
             new_molba = form.cleaned_data['molba']
-            new_smijer = form.cleaned_data['smijer']
+            new_smijer = smijer
             # new_doc = form.cleaned_data['doc']
 
             newStudent = Student(              # Add document upload support here.
@@ -43,7 +51,6 @@ def add(request):
                 smijer=new_smijer,
                 # doc = new_doc
             )   
-
             newStudent.save()
             
             # Redirect to the index page after successful submission
@@ -82,3 +89,19 @@ def delete(request, id):
         student = Student.objects.get(pk=id)
         student.delete()
     return HttpResponseRedirect(reverse('index'))
+
+def informaticki_view(request):
+    subjects = ['Programming', 'Database Management', 'Web Development']
+    plan_of_study = 'Informaticki Plan of Study: ...'
+    return render(request, 'university/field_of_study.html', {'field': 'Informaticki', 'subjects': subjects, 'plan_of_study': plan_of_study})
+
+def tehnoloski_view(request):
+    subjects = ['Engineering', 'Robotics', 'Automation']
+    plan_of_study = 'Tehnoloski Plan of Study: ...'
+    return render(request, 'university/field_of_study.html', {'field': 'Tehnoloski', 'subjects': subjects, 'plan_of_study': plan_of_study})
+
+def matematicki_view(request):
+    subjects = ['Calculus', 'Linear Algebra', 'Statistics']
+    plan_of_study = 'Matematicki Plan of Study: ...'
+    return render(request, 'university/field_of_study.html', {'field': 'Matematicki', 'subjects': subjects, 'plan_of_study': plan_of_study})
+
