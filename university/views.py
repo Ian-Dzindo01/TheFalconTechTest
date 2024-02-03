@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Student, FieldOfStudy
+from .models import Student
 from .forms import StudentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -35,7 +35,7 @@ def add(request):
                 prosjekOc=new_prosjek,
                 maturaOc = new_maturaOc,
                 mjestoRodj = new_mjestoRodj,
-                molba = new_molba
+                molba = new_molba   
             )   
             newStudent.save()
             
@@ -75,12 +75,3 @@ def delete(request, id):
         student = Student.objects.get(pk=id)
         student.delete()
     return HttpResponseRedirect(reverse('index'))
-
-def fields_list(request):
-    fields = FieldOfStudy.objects.all()
-    return render(request, 'fields/fields_list.html', {'fields':fields})
-
-def field_detail(request, field_id):
-    field = get_object_or_404(FieldOfStudy, pk=field_id)
-    return render(request, 'fields/field_detail.html', {'field':field})
-

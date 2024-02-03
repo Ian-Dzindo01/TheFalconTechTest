@@ -9,7 +9,6 @@ migrations - keeps track of changes to models.py
 widget - rendering html forms
 
 TASKS:
-- Add rest of fields for student registration - Easy
 - Login Logout functionality
 - JWT
 - REST
@@ -19,3 +18,7 @@ TASKS:
 - Ability for administrators to delete each other
 - Administators able to signup students to whichever FOS but with message.
 - Remove edit and delete abilities for regular users
+
+Errors:
+- Fix form submission
+- Fix fields of study
