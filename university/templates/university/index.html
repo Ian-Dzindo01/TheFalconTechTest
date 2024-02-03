@@ -15,24 +15,24 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Student Number</th>
-                  <th scope="col">First Name</th>
-                  <th scope="col">Last Name</th>
+                  <th scope="col">Broj Studenta</th>
+                  <th scope="col">Ime</th>
+                  <th scope="col">Prezime</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Field of Study</th>
-                  <th scope="col">GPA</th>
+                  <th scope="col">Odabrani Smijer</th>
+                  <th scope="col">Ocijena</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {% for student in students %}
                   <tr>
-                    <td>{{ student.number }}</td>
-                    <td>{{ student.fName }}</td>
-                    <td>{{ student.lName }}</td>
+                    <td>{{ student.broj }}</td>
+                    <td>{{ student.ime }}</td>
+                    <td>{{ student.prezime }}</td>
                     <td>{{ student.email }}</td>
-                    <td>{{ student.smijerOdab }}</td>
-                    <td>{{ student.prosjekOc }}</td>
+                    <td>{{ student.smijer }}</td>
+                    <td>{{ student.prosjek }}</td>
                     <td>
 
                        <!-- Modal - Delete Student -->

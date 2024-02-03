@@ -5,10 +5,10 @@ class Student(models.Model):
         ('Informatički', 'Informatički'),
         ('Tehnički', 'Tehnički'),
         ('Matematički', 'Matematički')]
-
+    
+    broj = models.PositiveIntegerField()
     ime = models.CharField(max_length=50)
     prezime = models.CharField(max_length=50)
-    broj = models.PositiveIntegerField()
     email = models.EmailField(max_length=100)
     skola = models.CharField(max_length=50)
     prosjek = models.FloatField()
@@ -16,7 +16,7 @@ class Student(models.Model):
     ocijena_mature = models.FloatField()
     mjesto = models.CharField(max_length=100)
     molba = models.CharField(max_length=500)
-    doc = models.FileField()
+    # doc = models.FileField()
     smijer = models.CharField(max_length=50, choices=study_choices)
 
 

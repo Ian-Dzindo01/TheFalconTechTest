@@ -4,7 +4,9 @@ from .forms import StudentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-def ind(request):
+
+
+def index(request):
     return render(request, 'university/index.html',{
         'students': Student.objects.all()})
 
@@ -16,27 +18,34 @@ def add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
-            new_number = form.cleaned_data['number']
-            new_fname = form.cleaned_data['fName']
-            new_lname = form.cleaned_data['lName']
+            new_broj = form.cleaned_data['broj']
+            new_ime = form.cleaned_data['prezime']
+            new_prezime = form.cleaned_data['ime']
             new_email = form.cleaned_data['email']
-            new_smijer = form.cleaned_data['smijerOdab']
-            new_prosjek = form.cleaned_data['prosjekOc']
-            new_maturaOc = form.cleaned_data['maturaOc']
-            new_mjestoRodj = form.cleaned_data['mjestoRodj']
+            new_skola = form.cleaned_data['skola']
+            new_prosjek = form.cleaned_data['prosjek']
+            new_datum = form.cleaned_data['datum']
+            new_ocijena_mature = form.cleaned_data['ocijena_mature']
+            new_mjesto = form.cleaned_data['mjesto']
             new_molba = form.cleaned_data['molba']
+            new_smijer = form.cleaned_data['smijer']
+            # new_doc = form.cleaned_data['doc']
 
-            newStudent = Student(
-                number=new_number,
-                fName=new_fname,
-                lName=new_lname,
-                email=new_email,
-                smijerOdab=new_smijer,
-                prosjekOc=new_prosjek,
-                maturaOc = new_maturaOc,
-                mjestoRodj = new_mjestoRodj,
-                molba = new_molba   
+            newStudent = Student(              # Add document upload support here.
+                broj = new_broj,
+                ime = new_ime,
+                prezime = new_prezime,
+                email = new_email,
+                skola = new_skola,
+                prosjek = new_prosjek,
+                datum = new_datum, 
+                ocijena_mature = new_ocijena_mature,
+                mjesto = new_mjesto,
+                molba = new_molba,
+                smijer=new_smijer,
+                # doc = new_doc
             )   
+
             newStudent.save()
             
             # Redirect to the index page after successful submission
