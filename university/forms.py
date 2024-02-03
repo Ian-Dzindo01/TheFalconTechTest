@@ -1,13 +1,9 @@
 from django import forms
-from .models import Student
+from .models import Student, FieldOfStudy
 
 class StudentForm(forms.ModelForm):
-    study_choices = [
-        ('Informatički', 'Informatički'),
-        ('Tehnički', 'Tehnički'),
-        ('Matematički', 'Matematički')]
-    
-    smijer = forms.ChoiceField(choices=study_choices, widget=forms.Select(attrs={'class': 'form-control'}))         # MOVE THIS BELOW WITH THE OTHERS
+
+    smijer = forms.ModelChoiceField(queryset=FieldOfStudy.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))         # MOVE THIS BELOW WITH THE OTHERS
     
     class Meta:
         model = Student
@@ -37,6 +33,6 @@ class StudentForm(forms.ModelForm):
                 'datum':forms.DateInput(attrs={'class':'form-control'}),
                 'ocijena_mature': forms.NumberInput(attrs={'class':'form-control'}),
                 'mjesto': forms.TextInput(attrs={'class':'form-control'}),
-                'molba': forms.TextInput(attrs={'class':'form-control'})
+                'molba': forms.TextInput(attrs={'class':'form-control'}),
                 # 'doc': forms.FileInput(attrs={'class': 'form-control'})
         }

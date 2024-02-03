@@ -1,11 +1,13 @@
 from django.db import models
 
-class Student(models.Model):
-    study_choices = [
-        ('Informatički', 'Informatički'),
-        ('Tehnički', 'Tehnički'),
-        ('Matematički', 'Matematički')]
+class FieldOfStudy(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    student_count = models.IntegerField(default=0)
     
+    def __str__(self):
+        return self.name
+
+class Student(models.Model):    
     broj = models.PositiveIntegerField()
     ime = models.CharField(max_length=50)
     prezime = models.CharField(max_length=50)
@@ -17,7 +19,7 @@ class Student(models.Model):
     mjesto = models.CharField(max_length=100)
     molba = models.CharField(max_length=500)
     # doc = models.FileField()
-    smijer = models.CharField(max_length=50, choices=study_choices)
+    smijer = models.ForeignKey(FieldOfStudy, on_delete=models.CASCADE)
 
 
     def __str__(self):

@@ -4,8 +4,6 @@ from .forms import StudentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-
-
 def index(request):
     return render(request, 'university/index.html',{
         'students': Student.objects.all()})
