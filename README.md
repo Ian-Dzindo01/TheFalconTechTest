@@ -5,7 +5,6 @@ python manage.py shell
 
 from your_app.models import FieldOfStudy
 
-# Create instances
 tehnoloski = FieldOfStudy.objects.create(name='Tehnoloski', student_count=0, quota=100)
 matematicki = FieldOfStudy.objects.create(name='Matematicki', student_count=0, quota=120)
 informaticki = FieldOfStudy.objects.create(name='Informaticki', student_count=0, quota=80)
