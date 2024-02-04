@@ -5,9 +5,9 @@ class FieldOfStudy(models.Model):
     quota = models.IntegerField(default=0)
     student_count = models.IntegerField(default=0)
     
-
     def __str__(self):
         return self.name
+
 
 class Student(models.Model):    
     broj = models.PositiveIntegerField()
@@ -21,10 +21,7 @@ class Student(models.Model):
     mjesto = models.CharField(max_length=100)
     molba = models.CharField(max_length=500)
     smijer = models.ForeignKey(FieldOfStudy, on_delete=models.CASCADE)
-    # doc = models.FileField()
-
-
+    doc = models.FileField(upload_to='pdf_documents/', blank=True, null=True)
 
     def __str__(self):
         return f"Student: {self.ime} {self.prezime}"
-

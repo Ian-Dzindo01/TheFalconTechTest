@@ -40,7 +40,6 @@ def add(request):
             new_mjesto = form.cleaned_data['mjesto']
             new_molba = form.cleaned_data['molba']
             new_smijer = smijer
-            # new_doc = form.cleaned_data['doc']
 
             newStudent = Student(              # Add document upload support here.
                 broj = new_broj,
@@ -54,8 +53,8 @@ def add(request):
                 mjesto = new_mjesto,
                 molba = new_molba,
                 smijer=new_smijer,
-                # doc = new_doc
             )   
+
             newStudent.save()
             
             # Redirect to the index page after successful submission

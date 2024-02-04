@@ -16,5 +16,3 @@ TASKS:
 - Ability for administrators to delete each other
 - Administators able to signup students to whichever FOS but with message.
 - Remove edit and delete abilities for regular users
-
-Administrators:
