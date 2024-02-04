@@ -22,5 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),                 # built-in Django admin app
     path('', include('university.urls')),            # include all urls from uni app
     path('api-auth/', include('authentication.urls')),
-    path('login/', views.login_view, name='login')   
+    path('login/', views.login_view, name='login'),   
 ]

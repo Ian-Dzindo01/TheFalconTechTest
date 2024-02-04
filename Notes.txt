@@ -8,9 +8,8 @@ views.py - request response file
 migrations - keeps track of changes to models.py
 widget - rendering html forms
 
-Users:
-- Login Logout functionality
-- JWT
+
+Link users and Students
 
 Administrators:
 - Add multiple administrator

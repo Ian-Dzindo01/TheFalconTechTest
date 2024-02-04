@@ -4,6 +4,7 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth import authenticate
+from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 
 class CustomTokenObtainPairView(TokenObtainPairView):
@@ -14,6 +15,12 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             refresh = RefreshToken.for_user(user)
             response.data['refresh'] = str(refresh)
             response.data['access'] = str(refresh.access_token)
+
+            redirect_url = 'index'
+
+            response.data['redirect'] = redirect_url
+            return redirect(redirect_url)  # Redirect the user immediately after login
+        
         return response
 
 class HelloView(APIView):
@@ -29,4 +36,4 @@ def registration_view(request):
     else:
         form = RegistrationForm()
 
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'university/login.html', {'form': form})
