@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+import university.views as views
+ 
 urlpatterns = [
-    path("admin/", admin.site.urls),        # built-in Django admin app
-    path('', include('university.urls'))    # include all urls from uni app
+    path("admin/", admin.site.urls),                 # built-in Django admin app
+    path('', include('university.urls')),            # include all urls from uni app
+    path('api-auth/', include('authentication.urls')),
+    path('login/', views.login_view, name='login')   
 ]

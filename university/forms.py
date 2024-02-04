@@ -34,5 +34,5 @@ class StudentForm(forms.ModelForm):
                 'ocijena_mature': forms.NumberInput(attrs={'class':'form-control'}),
                 'mjesto': forms.TextInput(attrs={'class':'form-control'}),
                 'molba': forms.TextInput(attrs={'class':'form-control'}),
-                'pdf_document': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+                'doc': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
         }

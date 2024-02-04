@@ -8,9 +8,11 @@ views.py - request response file
 migrations - keeps track of changes to models.py
 widget - rendering html forms
 
-TASKS:
+Users:
 - Login Logout functionality
 - JWT
+
+Administrators:
 - Add multiple administrator
 - Ability for administrators to delete each other
 - Administators able to signup students to whichever FOS but with message.
