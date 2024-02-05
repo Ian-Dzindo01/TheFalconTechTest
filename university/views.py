@@ -6,11 +6,22 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 def index(request):
-    username = request.GET.get('username', '')  # Get the username from the query parameters
-    return render(request, 'university/index.html', {'username': username, 'students': Student.objects.all()})
+    username = request.GET.get('username', '')  # Get the username and email from the query parameters
+    email = request.GET.get('email', '')
+    user = request.user
+    student_exists = False
 
-    # return render(request, 'university/index.html',{
-    #     'students': Student.objects.all()})
+    # if user.is_authenticated:
+    student_exists = Student.objects.filter(email=email).exists()            # this is not working properly
+
+    context = {
+        'username': username,
+        'students': Student.objects.all(),
+        'user': user,
+        'student_exists': student_exists,
+    }
+
+    return render(request, 'university/index.html', context)
 
 def login_view(request):
     return render(request, 'university/login.html')

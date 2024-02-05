@@ -18,7 +18,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             response.data['refresh'] = str(refresh)
             response.data['access'] = str(refresh.access_token)
 
-            redirect_url = reverse('index') + f'?username={user.username}'
+            redirect_url = reverse('index') + f'?username={user.username}&email={user.email}'
             
             response.data['redirect'] = redirect_url
             return redirect(redirect_url)  # Redirect the user immediately after login

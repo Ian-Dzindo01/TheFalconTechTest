@@ -26,11 +26,13 @@
                         <i class="fa-solid fa-list fa-lg"></i> List Students
                     </a>
                   </li>
+                  {% if not student_exists %}
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'add' %}">
-                        <i class="fa-solid fa-plus fa-lg"></i> Register Student
-                    </a>
+                      <a class="nav-link" href="{% url 'add' %}">
+                          <i class="fa-solid fa-plus fa-lg"></i> Register
+                      </a>
                   </li>
+              {% endif %}
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'matematicki' %}"> Matematicki</a>
                   </li>
