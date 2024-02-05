@@ -20,7 +20,8 @@ import university.views as views
  
 urlpatterns = [
     path("admin/", admin.site.urls),                 # built-in Django admin app
-    path('', include('university.urls')),            # include all urls from uni app
+    path('', views.login_view, name='landing_page'),  # Set the login view as the landing page
+    path('university/', include('university.urls')),            # include all urls from uni app
     path('api-auth/', include('authentication.urls')),
     path('login/', views.login_view, name='login'),   
 ]
