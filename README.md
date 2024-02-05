@@ -20,4 +20,5 @@ python manage.py runserver
 * Fix display of register button after redirect from pages that are not login.
 * Decide whether to use webpage admins or Django admin functionality.
 * Add message for when admins switches a students degree.
+* Add tests
 Work in progress.
