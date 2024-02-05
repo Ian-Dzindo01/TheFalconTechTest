@@ -1,7 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,pythonvanilla
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,pythonvanilla
 Paper.pdf
-Notes.txt
 media
 
 ### Django ###

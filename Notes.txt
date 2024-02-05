@@ -1,15 +1,8 @@
-ASGI, WSGI, Asynchronous
-__init__ - tells that Students app is package
-admin.py - conf file for built in Django admin app - register models
-apps.py - conf for students app
-models.py - database models
-tests.py - app specific tests
-views.py - request response file
-migrations - keeps track of changes to models.py
-widget - rendering html forms
-
 - Add Admins who are able to delete and edit directly from the home page.
 - Administators able to signup students to whichever FOS but with message.
 
 PROBLEMS:
 - When redirected back to index after registration, register button still shows.
+
+Debating on if it is better to use Django admin page for administrator activities or to 
+create admins on main web page where they will have delete and edit abilities.
