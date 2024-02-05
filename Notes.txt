@@ -8,7 +8,7 @@ views.py - request response file
 migrations - keeps track of changes to models.py
 widget - rendering html forms
 
-Add Admins who are able to delete and edit directly from the home page.
+- Add Admins who are able to delete and edit directly from the home page.
 - Administators able to signup students to whichever FOS but with message.
 
 PROBLEMS:

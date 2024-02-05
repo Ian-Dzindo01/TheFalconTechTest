@@ -8,20 +8,27 @@ from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from django.urls import reverse
 
-
+# JWT Authentication and Login function
 class CustomTokenObtainPairView(TokenObtainPairView):
     def post(self, request, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
+        # Call post method of parent class, pass in request as argument
+        response = super().post(request, *args, **kwargs)  
         if response.status_code == 200:
+            # Authenticate user with credentials
             user = authenticate(username=request.data['username'], password=request.data['password'])
+            # Refresh token used to obtain new access tokens without requiring credential reentering. Stored in response.
             refresh = RefreshToken.for_user(user)
             response.data['refresh'] = str(refresh)
+            # Store access token in response
             response.data['access'] = str(refresh.access_token)
 
+            # Specify where to redirect and pass username and email to receiver. Used for output in index.html
             redirect_url = reverse('index') + f'?username={user.username}&email={user.email}'
             
             response.data['redirect'] = redirect_url
-            return redirect(redirect_url)  # Redirect the user immediately after login
+
+            # Redirect the user immediately after login
+            return redirect(redirect_url)  
         
         return response
 
@@ -34,7 +41,8 @@ def registration_view(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')  # Redirect to the login page after successful registration
+            # Redirect to the login page after successful registration
+            return redirect('login')  
     else:
         form = RegistrationForm()
 

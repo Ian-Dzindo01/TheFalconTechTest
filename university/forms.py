@@ -1,10 +1,9 @@
 from django import forms
 from .models import Student, FieldOfStudy
 
+# Form from creation of new students. Users first need to create a profile and only then can they apply for a specific course.
+# Each user may apply only one time
 class StudentForm(forms.ModelForm):
-    smijer = forms.ModelChoiceField(queryset=FieldOfStudy.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))         # MOVE THIS BELOW WITH THE OTHERS
-    doc = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'form-control-file'}))
-
     class Meta:
         model = Student
         fields = ['broj', 'ime', 'prezime', 'email', 'skola', 'prosjek', 'datum', 'ocijena_mature', 'mjesto', 'molba', 'smijer', 'doc']
@@ -22,7 +21,10 @@ class StudentForm(forms.ModelForm):
             'smijer': 'Odaberite smijer',
             'doc': 'Dokument of zavrsenoj srednjoj skoli'
         }
-        
+
+        smijer = forms.ModelChoiceField(queryset=FieldOfStudy.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))    
+        doc = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'form-control-file'}))
+
         widgets = {
                 'broj':forms.NumberInput(attrs={'class':'form-control'}), 
                 'ime':forms.TextInput(attrs={'clas  s':'form-control'}), 

@@ -3,15 +3,15 @@ from django.contrib.auth.models import User
 
 class FieldOfStudy(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    quota = models.IntegerField(default=0)
+    # Available seats in given course
+    quota = models.IntegerField(default=0)                     
     student_count = models.IntegerField(default=0)
     
+    # Pretty printing
     def __str__(self):
         return self.name
 
-
 class Student(models.Model):
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)    
     broj = models.PositiveIntegerField()
     ime = models.CharField(max_length=50)
     prezime = models.CharField(max_length=50)
@@ -24,6 +24,8 @@ class Student(models.Model):
     molba = models.CharField(max_length=500)
     smijer = models.ForeignKey(FieldOfStudy, on_delete=models.CASCADE)
     doc = models.FileField(upload_to='pdf_documents/', blank=True, null=True)
+    # For further development
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)     
 
     def __str__(self):
         return f"Student: {self.ime} {self.prezime}"
