@@ -6,6 +6,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
+from django.urls import reverse
+
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     def post(self, request, *args, **kwargs):
@@ -16,8 +18,8 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             response.data['refresh'] = str(refresh)
             response.data['access'] = str(refresh.access_token)
 
-            redirect_url = 'index'
-
+            redirect_url = reverse('index') + f'?username={user.username}'
+            
             response.data['redirect'] = redirect_url
             return redirect(redirect_url)  # Redirect the user immediately after login
         

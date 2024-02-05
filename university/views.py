@@ -6,8 +6,11 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 def index(request):
-    return render(request, 'university/index.html',{
-        'students': Student.objects.all()})
+    username = request.GET.get('username', '')  # Get the username from the query parameters
+    return render(request, 'university/index.html', {'username': username, 'students': Student.objects.all()})
+
+    # return render(request, 'university/index.html',{
+    #     'students': Student.objects.all()})
 
 def login_view(request):
     return render(request, 'university/login.html')
