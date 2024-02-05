@@ -12,8 +12,8 @@ def index(request):
     student_exists = False
 
     # if user.is_authenticated:
-    student_exists = Student.objects.filter(email=email).exists()            # this is not working properly
-
+    student_exists = Student.objects.filter(email=email).exists()            # Check if a student with the same email exists in the database
+                                                                             # Used to determine whether register button is shown again
     context = {
         'username': username,
         'students': Student.objects.all(),
@@ -43,8 +43,6 @@ def add(request):
             
             smijer_instance.student_count += 1
             smijer_instance.save()
-
-
             
             new_broj = form.cleaned_data['broj']
             new_ime = form.cleaned_data['prezime']
