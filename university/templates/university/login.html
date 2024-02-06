@@ -13,6 +13,12 @@
                 <h2 class="mb-4">Login</h2>
                 <form method="post" action="{% url 'token_obtain_pair' %}">
                     {% csrf_token %}
+
+                    {{ form }}
+                    {% if request.GET.next %}
+                        <input type="hidden" name="next" value="{{request.GET.next}}">
+                    {% endif %}
+
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" name="username" required>

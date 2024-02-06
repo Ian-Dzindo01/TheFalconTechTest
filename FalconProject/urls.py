@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.login_view, name='landing_page'),            # Set the login view as the landing page
     path('university/', include('university.urls')),            # Include all urls from university app
     path('api-auth/', include('authentication.urls')),
-    path('login/', views.login_view, name='login'),   
+    path('accounts/login/', views.login_view, name='login'),   
 ]
