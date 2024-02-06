@@ -25,7 +25,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             # Specify where to redirect and pass username and email to receiver. Used for output in index.html
             redirect_url = reverse('index') + f'?username={user.username}&email={user.email}'
             response.data['redirect'] = redirect_url
-            
+
             # For login_required redirect. Grabs the path from the next variable in the url and redirects to it after login.
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
