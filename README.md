@@ -18,7 +18,7 @@ python manage.py runserver
 ```
 #### Administrators (professors) are to access the page by following the admin login button on the main Login page.
 #### There they have all the functionalities for editing and deleting both users and administrators.
-#### Administrators are create with the createsuperuser function.
+#### Administrators are created with the createsuperuser function.
 
 ## TODO:
 * Add Docker file.
