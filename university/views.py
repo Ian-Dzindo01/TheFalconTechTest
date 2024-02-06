@@ -38,7 +38,7 @@ def index(request, **kwargs):
 def login_view(request):
     return render(request, 'university/login.html')
 
-@login_required
+# @login_required
 def view_student(request, id):
     # Get student data by id
     student = Student.objects.get(pk=id)                         
@@ -46,7 +46,7 @@ def view_student(request, id):
     # Redirect to home page
     return HttpResponseRedirect(reverse('index'))                
 
-@login_required
+# @login_required
 def add(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)                          
