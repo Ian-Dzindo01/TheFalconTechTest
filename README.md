@@ -16,6 +16,9 @@ informaticki = FieldOfStudy.objects.create(name='Informaticki', student_count=0,
 ```
 python manage.py runserver
 ```
+#### Administrators (professors) are to access the page by following the admin login button on the main Login page.
+#### There they have all the functionalities for editing and deleting both users and administrators.
+
 ## TODO:
 * Add Docker file.
 * Decide whether to use webpage admins or Django admin functionality.
