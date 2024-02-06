@@ -23,7 +23,7 @@ python manage.py runserver
 ## TODO:
 * Add Docker file.
 * Add @login_required.
-* Add message for when admins switches a students degree.
+* Add message for when an admin switches a students degree.
 * Add tests.
   
 Work in progress.
