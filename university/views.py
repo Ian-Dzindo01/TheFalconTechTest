@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Student, FieldOfStudy
 from .forms import StudentForm
 from django import forms
@@ -6,20 +6,26 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 # Index page
-def index(request):
-    username = request.GET.get('username', '')  # Get the username and email from the query parameters
+def index(request, **kwargs):
+    # Get the username and email from the query parameters
+    fromadd = request.GET.get('fromadd', False)
+    success = request.GET.get('success', False)
+    username = request.GET.get('username', '')  
     email = request.GET.get('email', '')
-    user = request.user
-    student_exists = False
 
     # Check if a student with the same email exists in the database
     # Used to determine whether register button is shown again
-    student_exists = Student.objects.filter(email=email).exists()            
+    # Room for improvement in this logic
+    if fromadd:
+        student_exists = True
+    else:
+        student_exists = Student.objects.filter(email=email).exists() 
+
+    print('DOES STUDENT EXIST:', student_exists)           
                                                                              
     context = {
         'username': username,
         'students': Student.objects.all(),
-        'user': user,
         'student_exists': student_exists,
     }
 
@@ -83,18 +89,16 @@ def add(request):
 
             newStudent.save()
             
+            fromadd = True
             # Redirect to the index page after successful submission
-            return render(request, 'university/add.html', {
-                'form':StudentForm(),
-                'success':True
-            })
+            redirect_url = reverse('index') + f'?fromadd={fromadd}'
+            return redirect(redirect_url) 
     else:
         # Display an empty form for GET requests
         form = StudentForm()
 
-    return render(request, 'university/add.html', {
-        'form': form
-    })
+    return render(request, 'university/add.html', {'form': form})
+
 
 # Edit student specific data
 def edit(request, id):
