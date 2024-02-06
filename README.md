@@ -17,8 +17,8 @@ informaticki = FieldOfStudy.objects.create(name='Informaticki', student_count=0,
 python manage.py runserver
 ```
 ## TODO:
+* Add Docker file.
 * Decide whether to use webpage admins or Django admin functionality.
-* Add automatic number assignment to students.
 * Add message for when admins switches a students degree.
 * Add tests.
   
