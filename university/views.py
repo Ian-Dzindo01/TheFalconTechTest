@@ -14,6 +14,7 @@ def index(request, **kwargs):
     success = request.GET.get('success', False)
     username = request.GET.get('username', '')  
     email = request.GET.get('email', '')
+    user = request.user
 
     # Check if a student with the same email exists in the database
     # Used to determine whether register button is shown again
@@ -22,11 +23,10 @@ def index(request, **kwargs):
         student_exists = True
     else:
         student_exists = Student.objects.filter(email=email).exists() 
-
-    print('DOES STUDENT EXIST:', student_exists)           
                                                                              
     context = {
         'username': username,
+        'user': user,
         'students': Student.objects.all(),
         'student_exists': student_exists,
     }
