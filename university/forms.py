@@ -6,9 +6,9 @@ from .models import Student, FieldOfStudy
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['broj', 'ime', 'prezime', 'email', 'skola', 'prosjek', 'datum', 'ocijena_mature', 'mjesto', 'molba', 'smijer', 'doc']
+        fields = ['ime', 'prezime', 'email', 'skola', 'prosjek', 'datum', 'ocijena_mature', 'mjesto', 'molba', 'smijer', 'doc']
         labels = {
-            'broj':'Broj Studenta',
+            # 'broj':'Broj Studenta',
             'ime':'Ime',
             'prezime':'Prezime',
             'email':'Email',
@@ -26,7 +26,7 @@ class StudentForm(forms.ModelForm):
         doc = forms.FileField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'form-control-file'}))
 
         widgets = {
-                'broj':forms.NumberInput(attrs={'class':'form-control'}), 
+                # 'broj':forms.NumberInput(attrs={'class':'form-control'}),
                 'ime':forms.TextInput(attrs={'clas  s':'form-control'}), 
                 'prezime':forms.TextInput(attrs={'class':'form-control'}),
                 'email':forms.EmailInput(attrs={'class':'form-control'}),

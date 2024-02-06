@@ -5,6 +5,8 @@ from django import forms
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+count = 0
+
 # Index page
 def index(request, **kwargs):
     # Get the username and email from the query parameters
@@ -59,7 +61,7 @@ def add(request):
             smijer_instance.save()
             
             # Make sure data is in right format
-            new_broj = form.cleaned_data['broj']
+            new_broj = count + 1
             new_ime = form.cleaned_data['prezime']
             new_prezime = form.cleaned_data['ime']
             new_email = form.cleaned_data['email']

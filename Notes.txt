@@ -1,8 +1,7 @@
+- Automatic number assignment to students.  
 - Add Admins who are able to delete and edit directly from the home page.
 - Administators able to signup students to whichever FOS but with message.
 
-PROBLEMS:
-- When redirected back to index after registration, register button still shows.
 
 Debating on if it is better to use Django admin page for administrator activities or to 
 create admins on main web page where they will have delete and edit abilities.
